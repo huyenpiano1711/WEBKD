@@ -5,17 +5,24 @@
         <title>Huỳnh Châu Như Huyền  - K244161785</title>
         <style type="text/css">
             @import url(CSS/main.css);
+
+            /* Khung hiển thị nội dung bên dưới menu */
+            #noidung {
+                width: 100%;
+                height: 600px;
+                border: none;
+            }
         </style>
     </head>
     <body>
         <div id="container">
             <ul>
-                <li> <a href="CV/cv.html">HOME</a></li>
+                <li> <a href="CV/cv.html" target="noidung">HOME</a></li>
                 <li> <a href="#">HTML</a></li>
                 <li>
                     <a href="#">CSS</a>
                     <ul>
-                        <li> <a href="ex42/ex42.html">Bai tap 42</a></li>
+                        <li> <a href="ex42/ex42.html" target="noidung">Bai tap 42</a></li>
                         <li> <a href="#">GIAO DIỆN VỚI CSS</a></li>
                         <li> <a href="#">CSS NÂNG CAO</a></li>
                     </ul>
@@ -33,13 +40,22 @@
                 <li>
                     <a href="#">LEARNFORM</a>
                     <ul>
-                        <li> <a href="LearnForm/ClientGet.html" target="khungnoidung">Form GET</a></li>
-                        <li> <a href="LearnForm/login.html" target="khungnoidung">Login</a></li>
+                        <li> <a href="LearnForm/ClientGet.html" target="noidung">Form GET</a></li>
+                        <li> <a href="LearnForm/login.html" target="noidung">Login</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">BÀI TẬP</a>
+                    <ul>
+                        <li> <a href="Ex48/Register.html" target="noidung">Bai tap 48</a></li>
+                        <li> <a href="Ex49/Classsifield.html" target="noidung">Bai tap 49</a></li>
+                        <li> <a href="Ex50/Bai50/TravelExpense.html" target="noidung">Bai tap 50</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
 
-        <iframe name="khungnoidung" src="" width="100%" height="400"></iframe>
+        <!-- Các bài tập sẽ mở trong khung này, menu ở trên vẫn giữ nguyên -->
+        <iframe id="noidung" name="noidung"></iframe>
     </body>
 </html>

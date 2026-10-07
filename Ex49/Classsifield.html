@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Online Classifieds Search Form</title>
+    <style type="text/css">
+        body { background-color: #FFFFFF; margin: 0; }
+        #khung {
+            width: 480px;
+            margin: 20px auto;
+            padding: 15px 20px;
+            background-color: #CCFFFF;
+            border: 1px solid #0000CC;
+            border-right: 4px solid #0000CC;
+        }
+        #khung input.rong { width: 100%; box-sizing: border-box; }
+    </style>
+    <script>
+        function timKiem() {
+            alert("Search");
+        }
+
+        function troGiup() {
+            var w = window.open("", "help", "width=420,height=260");
+            w.document.write("<meta charset='UTF-8'><title>Help</title>"
+                + "<h3>Hướng dẫn sử dụng</h3><ul>"
+                + "<li>Chọn một mục ở phần 1 để tìm theo chuyên mục.</li>"
+                + "<li>Tick vào các báo cần tìm ở phần 2.</li>"
+                + "<li>Nhập khoảng ngày và từ khóa, rồi bấm Search.</li>"
+                + "<li>Bấm Cancel để xóa toàn bộ dữ liệu đã nhập.</li>"
+                + "</ul>");
+            w.document.close();
+        }
+
+        function xoaTrang() {
+            var f = document.frmClassified;
+            for (var i = 0; i < f.elements.length; i++) {
+                var e = f.elements[i];
+                if (e.type == "text") {
+                    e.value = "";
+                } else if (e.type == "radio" || e.type == "checkbox") {
+                    e.checked = false;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="khung">
+        <form name="frmClassified">
+            <h2><font color="red">Online Classifieds Search Form</font></h2>
+            <hr>
+
+            <p><b>1) Search for a classified in the following sections:</b></p>
+            <table cellpadding="2" cellspacing="0">
+                <tr>
+                    <td><input type="radio" name="section" value="Employment"> Employment</td>
+                    <td><input type="radio" name="section" value="Personal"> Personal</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="section" value="ForSale" checked> For Sale</td>
+                    <td><input type="radio" name="section" value="Miscellaneous"> Miscellaneous</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="section" value="Housing"> Housing</td>
+                    <td><input type="radio" name="section" value="All"> All of the above</td>
+                </tr>
+            </table>
+
+            <p><b>2) Search the following publications:</b></p>
+            <table cellpadding="2" cellspacing="0">
+                <tr>
+                    <td><input type="checkbox" name="midwest" checked> Midwest times</td>
+                    <td><input type="checkbox" name="modern"> Modern News</td>
+                    <td><input type="checkbox" name="employmenttoday"> Employment Today</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="greatlakes" checked> Great Lakes Classifieds</td>
+                    <td><input type="checkbox" name="middleton"> Middleton Daily</td>
+                    <td><input type="checkbox" name="cashtown"> Cashtown Daily News</td>
+                </tr>
+            </table>
+
+            <p><b>3) From</b>
+                <input type="text" name="fromdate" size="12" value="mm/dd/yy">
+                <b>to</b>
+                <input type="text" name="todate" size="12" value="mm/dd/yy">
+            </p>
+
+            <p><b>4) Enter a few keywords to describe the classified.</b></p>
+            <input type="text" name="keywords" class="rong">
+
+            <p><b>5) Click one of the options below:</b></p>
+            <table cellpadding="6" cellspacing="0">
+                <tr>
+                    <td align="center">
+                        <img src="Bai49/Search.gif" alt="Search" onclick="timKiem()" style="cursor:pointer"><br>
+                        <font color="green" size="2"><b>Search</b></font>
+                    </td>
+                    <td align="center">
+                        <img src="Bai49/Help.gif" alt="Help" onclick="troGiup()" style="cursor:pointer"><br>
+                        <font color="blue" size="2"><b>Help</b></font>
+                    </td>
+                    <td align="center">
+                        <img src="Bai49/Cancel.gif" alt="Cancel" onclick="xoaTrang()" style="cursor:pointer"><br>
+                        <font color="deeppink" size="2"><b>Cancel</b></font>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

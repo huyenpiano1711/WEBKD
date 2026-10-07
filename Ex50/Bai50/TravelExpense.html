@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Expense Report</title>
+    <style type="text/css">
+        body { background-color: #FFFFFF; margin: 0; }
+       #khung {
+        width: 560px;
+        margin: 20px auto;
+        background-color: #CCFFFF;
+        border: 1px solid #0000CC;
+        font-size: 12px;
+}
+        }
+        #noidung { padding: 8px 14px 12px 14px; }
+        #khung h3 { font-size: 16px; margin: 12px 0 8px 0; }
+        #khung hr { margin: 6px 0 12px 0; }
+        #khung p { margin: 8px 0; }
+        #khung th { background-color: #CCFFFF; font-size: 12px; }
+    </style>
+    <script>
+        function guiChiPhi() {
+            alert("Submit");
+        }
+    </script>
+</head>
+<body>
+    <div id="khung">
+        <div id="noidung">
+            <img src="DeLong.jpg" alt="DeLong Enterprises" width="100%">
+
+            <h3>Travel Expense Report</h3>
+            <hr>
+
+            <form name="frmExpense">
+                <p>1) First Name:
+                    <input type="text" name="firstname" size="14">
+                    Last Name:
+                    <input type="text" name="lastname" size="14">
+                </p>
+
+                <p>2) Social Security Number:
+                    <input type="text" name="ssn" size="9">
+                </p>
+
+                <p>3) Department:
+                    <select name="department">
+                        <option value="Accounting" selected>Accounting</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Sales">Sales</option>
+                        <option value="IT">IT</option>
+                    </select>
+                </p>
+
+                <p>4) Describe the purpose of your trip.</p>
+                <textarea name="purpose" rows="4" cols="52"></textarea>
+
+                <p>5) Itemize your travel expenses</p>
+                <table border="1" cellpadding="2" cellspacing="1" width="100%">
+                    <tr>
+                        <th width="60">Date</th>
+                        <th>Description</th>
+                        <th width="90">Category</th>
+                        <th width="50">Amount</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="date1" size="7" value="mm/dd/yy"></td>
+                        <td align="center"><input type="text" name="desc1" size="30"></td>
+                        <td>
+                            <select name="cat1">
+                                <option value="Meal" selected>Meal</option>
+                                <option value="Lodging">Lodging</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                        <td><input type="text" name="amount1" size="4"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="date2" size="7" value="mm/dd/yy"></td>
+                        <td align="center"><input type="text" name="desc2" size="30"></td>
+                        <td>
+                            <select name="cat2">
+                                <option value="Meal" selected>Meal</option>
+                                <option value="Lodging">Lodging</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                        <td><input type="text" name="amount2" size="4"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="date3" size="7" value="mm/dd/yy"></td>
+                        <td align="center"><input type="text" name="desc3" size="30"></td>
+                        <td>
+                            <select name="cat3">
+                                <option value="Meal" selected>Meal</option>
+                                <option value="Lodging">Lodging</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                        <td><input type="text" name="amount3" size="4"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="date4" size="7" value="mm/dd/yy"></td>
+                        <td align="center"><input type="text" name="desc4" size="30"></td>
+                        <td>
+                            <select name="cat4">
+                                <option value="Meal" selected>Meal</option>
+                                <option value="Lodging">Lodging</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                        <td><input type="text" name="amount4" size="4"></td>
+                    </tr>
+                </table>
+
+                <p>6) Have you submitted your receipts?
+                    <input type="radio" name="receipts" value="Yes"> Yes
+                    <input type="radio" name="receipts" value="No"> No
+                </p>
+
+                <p>
+                    <input type="button" value="Submit travel expenses" onclick="guiChiPhi()">
+                    <input type="reset" value="Reset">
+                </p>
+
+                <p>Questions? Contact Debbie Larson in Accounting (ext. 2150).</p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
