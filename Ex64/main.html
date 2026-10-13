@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Table</title>
+    <script>
+        // 1. Đồng hồ
+        function hienGio() {
+            var d = new Date();
+            var gio = d.getHours();
+            var phut = d.getMinutes();
+            var giay = d.getSeconds();
+            if (gio < 10) gio = "0" + gio;
+            if (phut < 10) phut = "0" + phut;
+            if (giay < 10) giay = "0" + giay;
+            document.getElementById("divGio").innerHTML = gio + ":" + phut + ":" + giay;
+        }
+
+        // 2. Click chuột vào dòng chữ
+        function xuLyChuot(e) {
+            if (e.button == 0) {
+                alert("Bạn vừa bấm chuột trái");
+            } else if (e.button == 2) {
+                alert("Bạn vừa bấm chuột phải");
+            }
+        }
+
+        // 3. Gắn sự kiện click tô đỏ / bỏ tô đỏ cho 1 dòng
+        function ganSuKien(tr) {
+            tr.onclick = function () {
+                if (tr.style.backgroundColor == "red") {
+                    tr.style.backgroundColor = "";
+                } else {
+                    tr.style.backgroundColor = "red";
+                }
+            };
+        }
+
+        // Gắn sự kiện cho các dòng có sẵn khi load trang
+        function khoiTao() {
+            hienGio();
+            setInterval(hienGio, 1000);
+            var tbody = document.getElementById("tbDuLieu");
+            for (var i = 0; i < tbody.rows.length; i++) {
+                ganSuKien(tbody.rows[i]);
+            }
+        }
+
+        // 4. Thêm vào: chèn 1 TR vào đầu bảng
+        function themDong() {
+            var tbody = document.getElementById("tbDuLieu");
+            var tr = document.createElement("tr");
+            for (var i = 0; i < 2; i++) {
+                var td = document.createElement("td");
+                td.innerHTML = "Thêm dòng mới ở đây";
+                tr.appendChild(td);
+            }
+            ganSuKien(tr);
+            tbody.insertBefore(tr, tbody.firstChild);
+        }
+
+        // 5. Xóa: dòng nào nền đỏ thì xóa hết
+        function xoaDong() {
+            var tbody = document.getElementById("tbDuLieu");
+            for (var i = tbody.rows.length - 1; i >= 0; i--) {
+                if (tbody.rows[i].style.backgroundColor == "red") {
+                    tbody.removeChild(tbody.rows[i]);
+                }
+            }
+        }
+
+        // 6. Chỉ hiển thị dòng
+        function chiHienDong() {
+            var tbody = document.getElementById("tbDuLieu");
+            alert("Số dòng của bảng: " + tbody.rows.length);
+        }
+
+        // 7. Chỉ hiển thị cột
+        function chiHienCot() {
+            var tbody = document.getElementById("tbDuLieu");
+            if (tbody.rows.length == 0) {
+                alert("Bảng chưa có dòng nào");
+            } else {
+                alert("Số cột của bảng: " + tbody.rows[0].cells.length);
+            }
+        }
+
+        // 8. Mở một trang mới
+        function moTrangMoi() {
+            window.open("https://tranduythanh.com");
+        }
+    </script>
+</head>
+<body onload="khoiTao()">
+    <div id="divGio"></div>
+    <p onmousedown="xuLyChuot(event)">
+        Click chuột vào dòng này. Sẽ xuất hiện thông báo phím bấm của chuột
+    </p>
+
+    <table border="1" style="border-collapse: collapse; width: 400px;">
+        <tbody id="tbDuLieu">
+            <tr>
+                <td>Dòng 1 cột 1</td>
+                <td>Dòng 1 cột 2</td>
+            </tr>
+            <tr>
+                <td>Dòng 2 cột 1</td>
+                <td>Dòng 2 cột 2</td>
+            </tr>
+            <tr>
+                <td>Dòng 3 cột 1</td>
+                <td>Dòng 3 cột 2</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <input type="button" value="Thêm vào" onclick="themDong()">
+    <input type="button" value="Xoá" onclick="xoaDong()">
+    <input type="button" value="Chỉ hiện dòng" onclick="chiHienDong()">
+    <input type="button" value="Chỉ hiện cột" onclick="chiHienCot()">
+    <input type="button" value="Mở một trang mới" onclick="moTrangMoi()">
+</body>
+</html>
